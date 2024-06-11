@@ -1,40 +1,40 @@
 
-import { AqrquilerBarco } from "./ArquilerBarcos";
+import { ArquilerBarco } from "./ArquilerBarcos";
 
 
 
-export class TlistaAqrquilerBarco {
-    ListaAqrquilerBarco: AqrquilerBarco[];
-    ListaAqrquilerBarcoF: AqrquilerBarco[];
+export class TlistaArquilerBarco {
+    ListaArquilerBarco: ArquilerBarco[];
+    ListaArquilerBarcoF: ArquilerBarco[];
 
     constructor() {
-        const storedData = localStorage.getItem('listaAqrquilerBarcos');
-        this.ListaAqrquilerBarcoF = storedData ? JSON.parse(storedData) : [];
+        const storedData = localStorage.getItem('listaArquilerBarcos');
+        this.ListaArquilerBarcoF = storedData ? JSON.parse(storedData) : [];
         
-        this.ListaAqrquilerBarco = [];
+        this.ListaArquilerBarco = [];
     }
 
-    Insertar(op: AqrquilerBarco) {
-        this.ListaAqrquilerBarcoF.push(op);
+    Insertar(op: ArquilerBarco) {
+        this.ListaArquilerBarcoF.push(op);
         this.guardarEnLocalStorage();
     }
-    Modificar(pos: number, op: AqrquilerBarco) {
-        this.ListaAqrquilerBarcoF[pos] = op;
+    Modificar(pos: number, op: ArquilerBarco) {
+        this.ListaArquilerBarcoF[pos] = op;
         this.guardarEnLocalStorage();
     }
     Eliminar(pos: number) {      
-        this.ListaAqrquilerBarcoF.splice(pos, 1);
+        this.ListaArquilerBarcoF.splice(pos, 1);
         this.guardarEnLocalStorage();
     }
 
     Listar(){
-        this.ListaAqrquilerBarcoF.forEach(a => {
+        this.ListaArquilerBarcoF.forEach(a => {
             return a;
         })
     }
 
     private guardarEnLocalStorage() {
-        localStorage.setItem('listaAqrquilerBarcos', JSON.stringify(this.ListaAqrquilerBarcoF));
+        localStorage.setItem('listaArquilerBarcos', JSON.stringify(this.ListaArquilerBarcoF));
     }
 
 
